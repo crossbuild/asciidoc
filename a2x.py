@@ -27,7 +27,7 @@ VERSION = '8.6.9'
 
 # AsciiDoc global configuration file directory.
 # NOTE: CONF_DIR is "fixed up" by Makefile -- don't rename or change syntax.
-CONF_DIR = '/etc/asciidoc'
+CONF_DIR = None
 
 
 ######################################################################
@@ -951,6 +951,8 @@ if __name__ == '__main__':
     opts.xsltproc_opts = ' '.join(opts.xsltproc_opts)
     opts.backend_opts = ' '.join(opts.backend_opts)
     opts = eval(str(opts))  # Convert optparse.Values to dict.
+    global CONF_DIR
+    CONF_DIR = os.path.dirname(os.path.realpath(sys.argv[0])) + '/../etc/asciidoc'
     a2x = A2X(opts)
     OPTIONS = a2x           # verbose and dry_run used by utility functions.
     verbose('args: %r' % argv)

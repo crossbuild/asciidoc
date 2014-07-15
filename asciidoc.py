@@ -4561,6 +4561,8 @@ class Config:
         APP_FILE = os.path.realpath(cmd)
         global APP_DIR
         APP_DIR = os.path.dirname(APP_FILE)
+        global CONF_DIR
+        CONF_DIR = os.path.dirname(APP_FILE) + '/../etc/asciidoc'
         global USER_DIR
         USER_DIR = userdir()
         if USER_DIR is not None:
@@ -5865,7 +5867,7 @@ APP_FILE = None             # This file's full path.
 APP_DIR = None              # This file's directory.
 USER_DIR = None             # ~/.asciidoc
 # Global configuration files directory (set by Makefile build target).
-CONF_DIR = '/etc/asciidoc'
+CONF_DIR = None
 HELP_FILE = 'help.conf'     # Default (English) help file.
 
 # Globals
